@@ -8,50 +8,13 @@
     <string name="contraseña">Contraseña</string>
     <string name="repita_contraseña">Repita Contraseña</string>
     <string name="registrar">Registrar</string>
-    <string name="respuesta">Nombre: %s \nCorreo: %s \nTeléfono: %s \nGénero: %s \nPasatiempo: %s \nCiudad de Nacimiento: %s</string>
-    <string name="masculino">Masculino</string>
-    <string name="femenino">Femenino</string>
-    <string name="genero">Género</string>
-    <string name="pasatiempos">Pasatiempos</string>
-    <string name="nadar">Nadar</string>
-    <string name="cine">Cine</string>
-    <string name="comer">Comer</string>
-    <string name="lugar_de_nacimiento">Lugar de nacimiento</string>
     <string name="digite_nombre">Nombre</string>
     <string name="deuda">Valor deuda</string>
     <string name="guardar">Guardar</string>
     <string name="buscar">Buscar</string>
     <string name="campo_obligatorio">* Campo obligatorio</string>
     <string name="crear">Crear</string>
-
-    <string-array name="ciudad_nacimiento">
-        <item>Seleccione una ciudad</item>
-        <item>Medellín</item>
-        <item>Bogotá</item>
-        <item>Cali</item>
-        <item>Barranquilla</item>
-        <item>Bucaramanga</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_drawer">DrawerActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
     <string name="actualizar">Actualizar</string>
     <string name="borrar">Borrar</string>
-    <string name="title_activity_bottom">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_activity_tabbed">TabbedActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="login">Login</string>
 </resources>
