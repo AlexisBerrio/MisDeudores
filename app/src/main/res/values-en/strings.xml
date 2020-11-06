@@ -9,26 +9,20 @@
     <string name="contraseña">Password</string>
     <string name="repita_contraseña">Verify Password</string>
     <string name="registrar">Register</string>
-    <string name="respuesta">Name: %s \nEmail: %s \nPhone: %s \nGenre: %s \nHobbies: %s \nCity of Birth: %s</string>
-    <string name="masculino">Male</string>
-    <string name="femenino">Female</string>
-    <string name="genero">Genre</string>
-    <string name="pasatiempos">Hobbies</string>
-    <string name="nadar">Swim</string>
-    <string name="cine">Cinema</string>
-    <string name="comer">Eat</string>
-    <string name="lugar_de_nacimiento">City of Birth</string>
     <string name="digite_nombre">Name</string>
     <string name="deuda">Debt</string>
     <string name="guardar">Save</string>
     <string name="buscar">Search</string>
+    <string name="login">Login</string>
+    <string name="actualizar">Update</string>
+    <string name="borrar">Delete</string>
+    <string name="campo_obligatorio">* Obligatory field</string>
+    <string name="crear">Create</string>
+    <string name="title_activity_bottom">Bottom Activity</string>
+    <string name="error_contrasena">Passwords do not match</string>
+    <string name="contrasenacorta">The password must have a minimum of 6 digits</string>
+    <string name="campo_vacio">The field cannot be empty</string>
+    <string name="registro_guardado">Record saved</string>
+    <string name="no_existe"> The username and password do not match the records</string>
 
-    <string-array name="ciudad_nacimiento">
-        <item>Choose city</item>
-        <item>Medellin</item>
-        <item>Bogotá</item>
-        <item>Cali</item>
-        <item>Barranquilla</item>
-        <item>Bucaramanga</item>
-    </string-array>
 </resources>

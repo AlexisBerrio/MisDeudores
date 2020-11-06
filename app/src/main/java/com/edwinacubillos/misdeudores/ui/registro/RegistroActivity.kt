@@ -1,73 +1,103 @@
 package com.edwinacubillos.misdeudores.ui.registro
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.edwinacubillos.misdeudores.MisDeudores
 import com.edwinacubillos.misdeudores.R
-import com.edwinacubillos.misdeudores.ui.login.LoginActivity
-import kotlinx.android.synthetic.main.activity_registro.*
+import com.edwinacubillos.misdeudores.data.database.dao.UsuarioDAO
+import com.edwinacubillos.misdeudores.data.database.entities.Usuario
+import com.edwinacubillos.misdeudores.databinding.ActivityRegistroBinding
+import java.sql.Types.NULL
 
 class RegistroActivity : AppCompatActivity() {
 
-    companion object {
-        private const val EMPTY = ""
-        private const val SPACE = " "
-    }
+    //  private lateinit var auth: FirebaseAuth
+    private lateinit var binding: ActivityRegistroBinding
+
+    /* companion object {
+         private const val EMPTY = ""
+         private const val SPACE = " "
+         private val TAG = RegistroActivity::class.simpleName
+     }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_registro)
 
-        val datosRecibidos = intent.extras
-        val numeroEnviado = datosRecibidos?.getInt("numero")
-        Toast.makeText(this, "El número enviado es $numeroEnviado", Toast.LENGTH_SHORT).show()
+        // Initialize Firebase Auth
+        //     auth = FirebaseAuth.getInstance()
+
+        binding.registrarButton.setOnClickListener {
+            val correo = binding.correoEditText.text.toString()
+            val contrasena = binding.contrasenaEditText.text.toString()
+            val nombre = binding.nombreEditText.text.toString()
+            val telefono = binding.telefonoEditText.text.toString()
+            val repContrasena = binding.repContrasenaEditText.text.toString()
+
+            when {
+                nombre.isEmpty() -> binding.nombreEditText.error = getString(R.string.campo_vacio)
+                correo.isEmpty() -> binding.correoEditText.error = getString(R.string.campo_vacio)
+                telefono.isEmpty() -> binding.telefonoEditText.error =
+                    getString(R.string.campo_vacio)
+                contrasena.isEmpty() -> binding.contrasenaEditText.error =
+                    getString(R.string.campo_vacio)
+                repContrasena.isEmpty() -> binding.repContrasenaEditText.error =
+                    getString(R.string.campo_vacio)
+                contrasena.length < 6 -> {
+                    binding.contrasenaEditText.error = getString(R.string.contrasenacorta)
+                }
+                contrasena != repContrasena -> {
+                    binding.contrasenaEditText.error = getString(R.string.error_contrasena)
+                }
 
 
-        Log.d("Método", "onCreate")
+                // If any error, send user information and go to Login
+                else -> {
 
-        registrar_button.setOnClickListener {
-            val correo = correo_edit_text.text.toString()
-            val contrasena = contrasena_edit_text.text.toString()
+                    val usuario = Usuario(NULL, nombre, correo, telefono, contrasena)
+                    val usuarioDAO: UsuarioDAO = MisDeudores.database.UsuarioDAO()
+                    usuarioDAO.insertUsuario(usuario)
 
-            val intent = Intent(this, LoginActivity::class.java)
-            intent.putExtra("correo", correo)
-            intent.putExtra("contrasena", contrasena)
-            startActivity(intent)
-            finish()
+                    Toast.makeText(
+                        applicationContext,
+                        getString(R.string.registro_guardado),
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-            val nombre = nombre_edit_text.text.toString()
+                    goToLoginActivity()
+                }
+            }
 
-            val telefono = telefono_edit_text.text.toString()
-
-            val repContrasena = rep_contrasena_edit_text.text.toString()
-            val genero =
-                if (masculino_radio_button.isChecked) getString(R.string.masculino) else getString(R.string.femenino)
-
-            var pasatiempos = EMPTY
-            if (nadar_check_box.isChecked) pasatiempos += getString(R.string.nadar) + SPACE
-            if (cine_check_box.isChecked) pasatiempos += getString(R.string.cine) + SPACE
-            if (comer_check_box.isChecked) pasatiempos += getString(R.string.comer)
-
-            val ciudadDeNacimiento = ciudad_nacimiento_spinner.selectedItem
-            respuesta_text_view.text = getString(
-                R.string.respuesta,
-                nombre,
-                correo,
-                telefono,
-                genero,
-                pasatiempos,
-                ciudadDeNacimiento
-            )
         }
+
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
+    /*
+        private fun registroEnFirebase(correo: String, contrasena: String) {
+            auth.createUserWithEmailAndPassword(correo, contrasena)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "createUserWithEmail:success")
+                        goToLoginActivity()
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(
+                            baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                    }
+
+                }
+        }
+    */
+    private fun goToLoginActivity() {
+        onBackPressed()
     }
 
     override fun onStart() {

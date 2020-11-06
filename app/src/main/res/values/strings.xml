@@ -17,4 +17,10 @@
     <string name="actualizar">Actualizar</string>
     <string name="borrar">Borrar</string>
     <string name="login">Login</string>
+    <string name="title_activity_bottom">Bottom Activity</string>
+    <string name="error_contrasena">Las contraseñas no coinciden</string>
+    <string name="contrasenacorta">La contraseña debe tener mínimo 6 dígitos</string>
+    <string name="campo_vacio">El campo no puede estar vacío</string>
+    <string name="registro_guardado">Registro guardado</string>
+    <string name="no_existe">El usuario y la contraseña no coinciden con los registros</string>
 </resources>

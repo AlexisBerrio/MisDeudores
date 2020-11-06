@@ -16,10 +16,21 @@ class SplashActivity : AppCompatActivity() {
         val timer = Timer()
         timer.schedule(
             timerTask {
+                // val auth = FirebaseAuth.getInstance().currentUser
+                //if (auth == null) {
                 goToLoginActivity()
-            }, 2000
+                //} else {
+                //  goToBottomActivity()
+                // }
+            }, 1000
         )
     }
+
+/*    fun goToBottomActivity() {
+        val intent = Intent(this, BottomActivity::class.java)
+        startActivity(intent)
+        finish()
+    }*/
 
     fun goToLoginActivity() {
         val intent = Intent(this, LoginActivity::class.java)
