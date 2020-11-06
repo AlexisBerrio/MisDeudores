@@ -23,4 +23,5 @@
     <string name="campo_vacio">El campo no puede estar vacío</string>
     <string name="registro_guardado">Registro guardado</string>
     <string name="no_existe">El usuario y la contraseña no coinciden con los registros</string>
+    <string name="lista">Lista</string>
 </resources>

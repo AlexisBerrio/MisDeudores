@@ -53,6 +53,7 @@
         android:id="@+id/guardar_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:background="@color/colorPrimary"
         android:text="@string/guardar"
         android:textColor="@android:color/white" />

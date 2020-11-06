@@ -12,9 +12,8 @@
 
         <activity
             android:name=".ui.bottom.BottomActivity"
-            android:label="@string/title_activity_bottom"></activity>
+            android:label="@string/title_activity_bottom" />
 
-        <activity android:name=".ui.main.MainActivity" />
 
         <activity android:name=".ui.login.LoginActivity" />
 

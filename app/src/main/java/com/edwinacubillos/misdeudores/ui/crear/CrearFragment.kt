@@ -35,12 +35,10 @@ class CrearFragment : Fragment() {
             val deudor = Deudor(NULL, nombre, telefono, valor)
 
             val deudorDAO: DeudorDAO = MisDeudores.database.DeudorDAO()
-
             deudorDAO.insertDeudor(deudor)
+
         }
     }
 
-    companion object {
-
-    }
+    companion object
 }
